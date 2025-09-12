@@ -22,7 +22,7 @@
   <div class="contact-container">
     <h1>Contact us!</h1>
     
-    <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+    <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
       <div class="form-group">
         <label for="nom">Last Name*</label>
         <input 

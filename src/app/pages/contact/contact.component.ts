@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -55,43 +57,43 @@ export class ContactComponent implements OnInit, OnDestroy {
     window.open('https://form.typeform.com/to/YwyF5A2R', '_blank');
   }
 
-  onSubmit() {
+  onSubmit(contactForm: NgForm) {
     if (this.isFormValid()) {
-      this.sendEmail();
+      this.sendEmail(contactForm);
     }
   }
 
-  private sendEmail() {
-    const emailBody = this.createEmailBody();
-    const subject = `Nouveau message de contact - ${this.formData.prenom} ${this.formData.nom}`;
-    const mailtoLink = `mailto:contact@greenorganiser.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    window.location.href = mailtoLink;
-    this.showSuccessMessage = true;
-    
-    setTimeout(() => {
-      this.resetForm();
-      this.showSuccessMessage = false;
-    }, 3000);
-  }
+  private sendEmail(contactForm: NgForm) {
+    emailjs.send(
+      'service_85mulub',   
+      'template_sfpc6bk',  
+      {
+        nom: this.formData.nom,
+        prenom: this.formData.prenom,
+        email: this.formData.email,
+        telephone: this.formData.telephone,
+        message: this.formData.message,
+        to_email: 'contact@greenorganiser.com'
+      },
+      '3lvV7f_SBhmZwqkv_'
+    )
+    .then((result: EmailJSResponseStatus) => {
+      console.log('SUCCESS!', result.text);
+      this.showSuccessMessage = true;
 
-  private createEmailBody(): string {
-    let body = `Nouveau message de contact depuis le site Green Organizer\n\n`;
-    body += `Informations du contact :\n`;
-    body += `- Nom : ${this.formData.nom}\n`;
-    body += `- Prénom : ${this.formData.prenom}\n`;
-    body += `- Email : ${this.formData.email}\n`;
-    
-    if (this.formData.telephone.trim()) {
-      body += `- Téléphone : ${this.formData.telephone}\n`;
-    }
-    
-    body += `\nMessage :\n`;
-    body += `${this.formData.message}\n\n`;
-    body += `---\n`;
-    body += `Message envoyé depuis le formulaire de contact du site Green Organizer`;
-    
-    return body;
+      // Réinitialiser le formulaire et l’état de validation
+      this.resetForm(contactForm);
+
+      // Redirection après un petit délai pour voir le message
+      setTimeout(() => {
+        this.showSuccessMessage = false;
+        this.navigateToAccueil();
+      }, 3000);
+      
+    }, (error) => {
+      console.error('FAILED...', error.text);
+      alert('Erreur lors de l’envoi du message, veuillez réessayer.');
+    });
   }
 
   private isFormValid(): boolean {
@@ -109,7 +111,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     return emailRegex.test(email);
   }
 
-  private resetForm() {
+  private resetForm(contactForm: NgForm) {
     this.formData = {
       nom: '',
       prenom: '',
@@ -117,5 +119,6 @@ export class ContactComponent implements OnInit, OnDestroy {
       telephone: '',
       message: ''
     };
+    contactForm.resetForm();
   }
 }

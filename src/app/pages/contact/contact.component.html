@@ -24,7 +24,8 @@
   <div class="contact-container">
     <h1>Contactez nous !</h1>
     
-    <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+    <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+
       <div class="form-group">
         <label for="nom">Nom*</label>
         <input 
@@ -107,8 +108,10 @@
       </button>
     </form>
     <!-- Success Message -->
-    <div *ngIf="showSuccessMessage" class="success-message">
-      <p>✅ Merci ! Votre client email va s'ouvrir pour envoyer le message. Nous vous répondrons dans les plus brefs délais.</p>
-    </div>
+    <!-- Success Message -->
+<div *ngIf="showSuccessMessage" class="success-message">
+  <p>✅ Merci ! Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.</p>
+</div>
+
   </div>
 </section>

@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-en',
@@ -10,8 +12,8 @@ import { LanguageService } from '../../services/language.service';
 })
 export class ContactEnComponent implements OnInit, OnDestroy {
   
-  private subscription = new Subscription();
-  currentLanguage: string = 'en';
+private subscription = new Subscription();
+  currentLanguage: string = 'fr';
 
   formData = {
     nom: '',
@@ -29,8 +31,8 @@ export class ContactEnComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // Détecter et définir la langue anglaise
-    this.languageService.setLanguage('en');
+    // Détecter et définir la langue française
+    this.languageService.setLanguage('fr');
     
     this.subscription.add(
       this.languageService.currentLanguage$.subscribe(lang => {
@@ -43,7 +45,6 @@ export class ContactEnComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  // Navigation qui respecte la langue courante
   navigateToHome() {
     this.languageService.navigateInCurrentLanguage('home');
   }
@@ -52,51 +53,47 @@ export class ContactEnComponent implements OnInit, OnDestroy {
     this.languageService.navigateInCurrentLanguage('about');
   }
 
-  navigateToContact() {
-    this.languageService.navigateInCurrentLanguage('contact');
-  }
-
   openTypeform() {
-    window.open('https://form.typeform.com/to/Qx5yS5a2', '_blank');
+    window.open('https://form.typeform.com/to/YwyF5A2R', '_blank');
   }
 
-  onSubmit() {
+  onSubmit(contactForm: NgForm) {
     if (this.isFormValid()) {
-      this.sendEmail();
+      this.sendEmail(contactForm);
     }
   }
 
-  private sendEmail() {
-    const emailBody = this.createEmailBody();
-    const subject = `New contact message - ${this.formData.prenom} ${this.formData.nom}`;
-    const mailtoLink = `mailto:contact@greenorganizer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    window.location.href = mailtoLink;
-    this.showSuccessMessage = true;
-    
-    setTimeout(() => {
-      this.resetForm();
-      this.showSuccessMessage = false;
-    }, 3000);
-  }
+  private sendEmail(contactForm: NgForm) {
+    emailjs.send(
+      'service_85mulub',   
+      'template_sfpc6bk',  
+      {
+        nom: this.formData.nom,
+        prenom: this.formData.prenom,
+        email: this.formData.email,
+        telephone: this.formData.telephone,
+        message: this.formData.message,
+        to_email: 'contact@greenorganiser.com'
+      },
+      '3lvV7f_SBhmZwqkv_'
+    )
+    .then((result: EmailJSResponseStatus) => {
+      console.log('SUCCESS!', result.text);
+      this.showSuccessMessage = true;
 
-  private createEmailBody(): string {
-    let body = `New contact message from Green Organizer website\n\n`;
-    body += `Contact information:\n`;
-    body += `- Last Name: ${this.formData.nom}\n`;
-    body += `- First Name: ${this.formData.prenom}\n`;
-    body += `- Email: ${this.formData.email}\n`;
-    
-    if (this.formData.telephone.trim()) {
-      body += `- Phone: ${this.formData.telephone}\n`;
-    }
-    
-    body += `\nMessage:\n`;
-    body += `${this.formData.message}\n\n`;
-    body += `---\n`;
-    body += `Message sent from Green Organizer website contact form`;
-    
-    return body;
+      // Réinitialiser le formulaire et l’état de validation
+      this.resetForm(contactForm);
+
+      // Redirection après un petit délai pour voir le message
+      setTimeout(() => {
+        this.showSuccessMessage = false;
+        this.navigateToHome();
+      }, 3000);
+      
+    }, (error) => {
+      console.error('FAILED...', error.text);
+      alert('Erreur lors de l’envoi du message, veuillez réessayer.');
+    });
   }
 
   private isFormValid(): boolean {
@@ -114,7 +111,7 @@ export class ContactEnComponent implements OnInit, OnDestroy {
     return emailRegex.test(email);
   }
 
-  private resetForm() {
+  private resetForm(contactForm: NgForm) {
     this.formData = {
       nom: '',
       prenom: '',
@@ -122,5 +119,8 @@ export class ContactEnComponent implements OnInit, OnDestroy {
       telephone: '',
       message: ''
     };
+
+    // Réinitialise le formulaire et supprime les erreurs de validation
+    contactForm.resetForm();
   }
 }
