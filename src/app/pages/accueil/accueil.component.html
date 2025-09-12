@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Organiser - Hébergements écoresponsables</title>
-</head>
 <body>
-    <!-- Header Navigation -->
-    <header class="header">
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="assets/logo/logogreen.png" alt="Processus de réservation" />
-                <span class="logo-text">Green Organiser</span>
-            </div>
-            <div class="nav-links">
-            <button class="nav-link active">Accueil</button>
+<header class="header">
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="assets/logo/logogreen.png" alt="Green Organiser" />
+            <span class="logo-text">Green Organiser</span>
+        </div>
+        <div class="nav-links">
+          <button class="nav-link active">Accueil</button>
             <button class="nav-link" (click)="navigateToAPropos()">À propos</button>
             <button class="nav-link" (click)="navigateToContact()">Contact</button>
             <button class="nav-link nav-cta" (click)="openTypeform()">Je demande mon devis</button>
-
-
+            
             <!-- Sélecteur de langue -->
             <app-language-switcher></app-language-switcher>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <section class="hero">
     <div class="hero-content">

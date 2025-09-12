@@ -19,13 +19,14 @@ html, body {
     color: white;
     padding: 0;
     margin: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100vw;
+    position: fixed;   /* ✅ reste toujours visible */
+    top: 0;            /* ✅ collé tout en haut */
     left: 0;
     right: 0;
+    z-index: 1000;     /* ✅ passe au-dessus du reste */
+    width: 100%;       /* ✅ pas de scroll horizontal */
 }
+
 
 /* NAVIGATION BAR - Prend toute la largeur */
 .nav-bar {
@@ -387,6 +388,7 @@ html, body {
 }
 
 .commitment-item img {
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: auto;
+    max-width: 100%; /* (optionnel, pour éviter qu’elles dépassent du conteneur) */
 }
