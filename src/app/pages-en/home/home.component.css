@@ -1,4 +1,4 @@
-/* RESET COMPLET - Supprime TOUTES les marges et bordures */
+/* Accueil css - CORRIGÉ */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@
 html, body {
     margin: 0 !important;
     padding: 0 !important;
-    width: 100%;
+    width: 100vw !important; /* Force la largeur complète */
     overflow-x: hidden;
     font-family: 'Arial', sans-serif;
 }
@@ -17,26 +17,26 @@ html, body {
 .header {
     background-color: #4CAF50;
     color: white;
-    padding: 0; /* Supprime tout padding */
-    margin: 0; /* Supprime toute marge */
+    padding: 0;
+    margin: 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    width: 100vw; /* Force 100% de la largeur viewport */
+    width: 100vw;
     left: 0;
     right: 0;
 }
 
 /* NAVIGATION BAR - Prend toute la largeur */
 .nav-bar {
-    max-width: none; /* Supprime la limitation de largeur */
-    width: 100%;
+    max-width: none;
+    width: 100vw; /* Force 100vw comme dans a-propos */
     margin: 0;
-    padding: 1rem 2rem; /* Padding interne seulement */
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #4CAF50; /* Assure la couleur */
+    background-color: #4CAF50;
 }
 
 .logo {
@@ -91,44 +91,62 @@ html, body {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* Sections - Supprime TOUTES les marges latérales */
+section {
+    width: 100vw; /* Force 100vw comme toutes les autres sections */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Hero Section - CORRIGÉ */
 .hero {
-    padding: 4rem 0;
+    margin: 0; /* ✅ CORRIGÉ : supprime l'erreur "-10 px" */
+    padding: 3rem 0;
     background-color: #f8f9fa;
+    width: 100vw; /* Force la largeur complète */
 }
 
 .hero-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-top {
     display: flex;
     align-items: center;
     gap: 3rem;
-    padding: 0 2rem;
+    margin-bottom: 4rem;
+}
+
+.hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
 }
 
 .hero-text {
     flex: 2;
 }
 
-.hero-image img {
-    width: 250px;  /* fixe une largeur réduite */
-    height: auto;  /* garde les proportions */
-    border-radius: 12px;
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
 .hero-image img {
-    max-width: 100%;
+    width: 250px;
     height: auto;
     border-radius: 12px;
 }
-
-.feature-item img {
-    width: 80px;   /* tu choisis la taille */
-    height: auto;
-    margin-bottom: 1rem;
-}
-
 
 .hero-text h1 {
     font-size: 2.5rem;
@@ -165,9 +183,10 @@ html, body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.feature-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+.feature-item img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
 }
 
 .feature-item p {
@@ -175,27 +194,12 @@ html, body {
     color: #666;
 }
 
-.cta-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #2E7D32;
-}
-
 /* Values Section */
 .values-section {
     padding: 3rem 0;
     background-color: white;
     text-align: center;
+    width: 100vw;
 }
 
 .values-section h2 {
@@ -243,6 +247,7 @@ html, body {
 .what-we-do {
     padding: 4rem 0;
     background-color: #f8f9fa;
+    width: 100vw;
 }
 
 .what-we-do h2 {
@@ -290,6 +295,7 @@ html, body {
 .target-section {
     padding: 4rem 0;
     background-color: white;
+    width: 100vw;
 }
 
 .target-content {
@@ -349,6 +355,7 @@ html, body {
     padding: 4rem 0;
     background-color: #f8f9fa;
     text-align: center;
+    width: 100vw;
 }
 
 .how-it-works h2 {
@@ -411,6 +418,7 @@ html, body {
     padding: 4rem 0;
     background-color: white;
     text-align: center;
+    width: 100vw;
 }
 
 .final-cta h2 {
@@ -473,6 +481,7 @@ html, body {
     .nav-bar {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
     }
     
     .nav-links {
@@ -480,7 +489,7 @@ html, body {
         justify-content: center;
     }
     
-    .hero-content {
+    .hero-top, .hero-bottom {
         flex-direction: column;
         text-align: center;
     }
