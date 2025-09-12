@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Pour inclure les paddings et les bordures dans les dimensions */
+    box-sizing: border-box;
 }
 
 html, body {
@@ -90,6 +90,7 @@ html, body {
     font-weight: bold;
     transition: all 0.3s ease;
 }
+
 /* Hero Section */
 .hero {
     padding: 4rem 0;

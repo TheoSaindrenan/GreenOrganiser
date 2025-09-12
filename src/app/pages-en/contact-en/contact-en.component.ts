@@ -4,14 +4,14 @@ import { Subscription } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-contact-en',
+  templateUrl: './contact-en.component.html',
+  styleUrls: ['./contact-en.component.css']
 })
-export class ContactComponent implements OnInit, OnDestroy {
+export class ContactEnComponent implements OnInit, OnDestroy {
   
   private subscription = new Subscription();
-  currentLanguage: string = 'fr';
+  currentLanguage: string = 'en';
 
   formData = {
     nom: '',
@@ -29,8 +29,8 @@ export class ContactComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // Détecter et définir la langue française
-    this.languageService.setLanguage('fr');
+    // Détecter et définir la langue anglaise
+    this.languageService.setLanguage('en');
     
     this.subscription.add(
       this.languageService.currentLanguage$.subscribe(lang => {
@@ -43,16 +43,21 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  navigateToAccueil() {
+  // Navigation qui respecte la langue courante
+  navigateToHome() {
     this.languageService.navigateInCurrentLanguage('home');
   }
 
-  navigateToAPropos() {
+  navigateToAbout() {
     this.languageService.navigateInCurrentLanguage('about');
   }
 
+  navigateToContact() {
+    this.languageService.navigateInCurrentLanguage('contact');
+  }
+
   openTypeform() {
-    window.open('https://form.typeform.com/to/YwyF5A2R', '_blank');
+    window.open('https://form.typeform.com/to/Qx5yS5a2', '_blank');
   }
 
   onSubmit() {
@@ -63,8 +68,8 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   private sendEmail() {
     const emailBody = this.createEmailBody();
-    const subject = `Nouveau message de contact - ${this.formData.prenom} ${this.formData.nom}`;
-    const mailtoLink = `mailto:contact@greenorganiser.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    const subject = `New contact message - ${this.formData.prenom} ${this.formData.nom}`;
+    const mailtoLink = `mailto:contact@greenorganizer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
     
     window.location.href = mailtoLink;
     this.showSuccessMessage = true;
@@ -76,20 +81,20 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   private createEmailBody(): string {
-    let body = `Nouveau message de contact depuis le site Green Organizer\n\n`;
-    body += `Informations du contact :\n`;
-    body += `- Nom : ${this.formData.nom}\n`;
-    body += `- Prénom : ${this.formData.prenom}\n`;
-    body += `- Email : ${this.formData.email}\n`;
+    let body = `New contact message from Green Organizer website\n\n`;
+    body += `Contact information:\n`;
+    body += `- Last Name: ${this.formData.nom}\n`;
+    body += `- First Name: ${this.formData.prenom}\n`;
+    body += `- Email: ${this.formData.email}\n`;
     
     if (this.formData.telephone.trim()) {
-      body += `- Téléphone : ${this.formData.telephone}\n`;
+      body += `- Phone: ${this.formData.telephone}\n`;
     }
     
-    body += `\nMessage :\n`;
+    body += `\nMessage:\n`;
     body += `${this.formData.message}\n\n`;
     body += `---\n`;
-    body += `Message envoyé depuis le formulaire de contact du site Green Organizer`;
+    body += `Message sent from Green Organizer website contact form`;
     
     return body;
   }

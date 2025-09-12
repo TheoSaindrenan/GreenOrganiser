@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Organiser - Hébergements écoresponsables</title>
-    
-    <!-- Favicon : Remplace l'icône Angular par ton propre logo -->
-    <link rel="icon" href="assets/logo/logogreen.png" type="image/png">
-</head>
+
+
 <body>
     <!-- Header Navigation -->
     <header class="header">
@@ -17,13 +11,11 @@
                 <span class="logo-text">Green Organiser</span>
             </div>
             <div class="nav-links">
-            <button class="nav-link active">Accueil</button>
-            <button class="nav-link" (click)="navigateToAPropos()">À propos</button>
+            <button class="nav-link active">Home</button>
+            <button class="nav-link" (click)="navigateToAbout()">About</button>
             <button class="nav-link" (click)="navigateToContact()">Contact</button>
-            <button class="nav-link nav-cta" (click)="openTypeform()">Je demande mon devis</button>
+            <button class="nav-link" (click)="openTypeform()" class="nav-cta">I would like to request a free quote</button>
 
-
-            <!-- Sélecteur de langue -->
             <app-language-switcher></app-language-switcher>
             </div>
         </nav>
@@ -34,8 +26,8 @@
         <!-- Partie 1 : Titre + sous-titre + image à droite -->
         <div class="hero-top">
             <div class="hero-text">
-                <h1>Hébergements écoresponsables pour vos groupes</h1>
-                <p class="hero-subtitle">Recevez votre devis personnalisé en 72h (Jours Ouvrés)</p>
+                <h1>Eco-friendly accommodation for your groups</h1>
+                <p class="hero-subtitle">Receive your personalised quote within 72 hours (working days)</p>
             </div>
             <div class="hero-image">
                 <img src="assets/accueil/image2.png" alt="Processus de réservation" />
@@ -49,22 +41,21 @@
             </div>
             <div class="hero-features">
                 <h2>
-                    Organiser un séjour de groupe écoresponsable, en France comme à
-                    l'international, n'a jamais été aussi simple.
+                    Organizing an eco-friendly group stay has never been easier. Whether in Europe or worldwide
                 </h2>
 
                 <div class="features-grid">
                     <div class="feature-item">
                         <img src="assets/accueil/image3.png" alt="Processus de réservation" />
-                        <p>Vous nous dites vos besoin (Villes, dates, budget...)</p>
+                        <p>You tell us your requirements (cities, dates, budget, etc.)</p>
                     </div>
                     <div class="feature-item">
                         <img src="assets/accueil/image4.png" alt="Processus de réservation" />
-                        <p>Nous trouvons les meilleurs hébergements verts (écolabel, critères durables)</p>
+                        <p>We find the best green accommodation (eco-label, sustainable criteria)</p>
                     </div>
                     <div class="feature-item">
                         <img src="assets/accueil/image5.png" alt="Processus de réservation" />
-                        <p>Vous choisissez et on s’occuper du reste !</p>
+                        <p>You choose, and we'll take care of the rest!</p>
                     </div>
                 </div>
             </div>
@@ -75,47 +66,46 @@
 
     <!-- Values Section -->
     <section class="values-section">
-        <h2>Votre événement, notre planète !</h2>
+        <h2>Your event, our planet!</h2>
         
         <div class="values-grid">
             <div class="value-item">
                 <div class="value-icon">
                     <img src="assets/accueil/image6.png" alt="Processus de réservation" />
                 </div>
-                <h3>100% écoresponsable</h3>
+                <h3>100% ecofriendly</h3>
             </div>
             <div class="value-item">
                 <div class="value-icon">
                 <img src="assets/accueil/image7.png" alt="Processus de réservation" />
                 </div>
-                <h3>Les meilleurs tarifs négociés</h3>
+                <h3>The best negotiated rates</h3>
             </div>
             <div class="value-item">
                 <div class="value-icon">
                 <img src="assets/accueil/image8.png" alt="Processus de réservation" />
                 </div>
-                <h3>Devis gratuit et sans engagements</h3>
+                <h3>Free, no-obligation quote</h3>
             </div>
         </div>
     </section>
 
     <!-- What We Do Section -->
     <section class="what-we-do">
-        <h2>Ce que nous faisons :</h2>
+        <h2>What we do:</h2>
         
         <div class="services-content">
             <div class="services-text">
-                <p><strong>Spécialistes de la réservation de chambres pour les groupes :</strong></p>
+                <p><strong>Specialists in booking rooms for groups</strong></p>
                 
-                <p>Green Organiser est une agence indépendante dédiée à la vente de chambres d’hôtel pour les groupes, à partir de 5 chambres  minimums.</p>
+                <p>Green Organiser is an independent agency dedicated to selling hotel rooms for groups, with a minimum of 5 rooms.</p>
                 
-                <p>Nous sélectionnons uniquement des établissements engagés dans une démarche écologique : écolabels, pratiques durables, énergie verte, gestion responsable…</p>
+                <p>We only work with hotels that are committed to environmental protection: eco-labels, sustainable practices, green energy, responsible management, etc.</p>
                 
-                <p>Basés en France, nous accompagnons vos projets aussi bien sur le territoire français qu’à l’international.</p>
+                <p>Each request is handled individually, based on your specific needs.</p>
                 
-                <p>Chaque demande est traitée sur mesure, en fonction de vos besoins spécifiques.</p>
+                <p>No fixed catalogue. No imposed partners.</p>
                 
-                <p>Pas de catalogue figé. Pas de partenaires imposés.</p>
             </div>
             
             <div class="services-image">
@@ -132,13 +122,13 @@
             </div>
             
             <div class="target-text">
-                <h2>Pour qui ?</h2>
-                <p>Green Organizer accompagne tous les types de groupes :</p>
+                <h2>For who?</h2>
+                <p>Green Organiser supports all types of groups:</p>
                 
                 <ul>
-                    <li>Entreprises (séminaires, formations, déplacements longue durée…)</li>
-                    <li>Associations & collectivités</li>
-                    <li>Groupes privés (familles, amis, événements...)</li>
+                    <li>Businesses (seminars, training courses, long-term travel, etc.)</li>
+                    <li>Associations & communities</li>
+                    <li>Private groups (families, friends, events, etc.)</li>
                 </ul>
             </div>
         </div>
@@ -146,24 +136,24 @@
 
     <!-- How It Works Section -->
     <section class="how-it-works">
-        <h2>Comment ça marche ?</h2>
+        <h2>How does it work?</h2>
         
         <div class="steps-grid">
             <div class="step">
                 <div class="step-number">1</div>
-                <p>Vous remplissez un court formulaire avec vos besoins (dates, destination, nombre de chambres…)</p>
+                <p>You fill out a short form with your requirements (dates, destination, number of rooms, etc.).</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <p>Nous contactons directement les hôtels écoresponsables qui correspondent à votre demande</p>
+                <p>We contact eco-friendly hotels that match your request directly.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
-                <p>Vous recevez une ou plusieurs offres personnalisées</p>
+                <p>You will receive one or more personalised offers.</p>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
-                <p>Vous choisissez. Nous réservons. C’est aussi simple que ça</p>
+                <p>You choose. We book. It's that simple.</p>
             </div>
         </div>
         
@@ -174,13 +164,13 @@
 
     <!-- CTA Section -->
     <section class="final-cta">
-        <h2>Faites votre demande en 2 minutes</h2>
-        <p>Nous vous envoyons une ou plusieurs propositions sous 72h (Jours ouvrés).</p>
+        <h2>Apply in 2 minutes</h2>
+        <p>We will send you one or more proposals within 72 hours (working days).</p>
         
         <div class="cta-content">
             <div class="cta-text">
-                <p><strong>Service gratuit, rapide et engagé</strong></p>
-                <button class="cta-button-final">Je demande mon devis gratuit !</button>
+                <p><strong>Free, fast and dedicated service.</strong></p>
+                <button class="cta-button-final">I would like to request a free quote</button>
             </div>
         </div>
     </section>

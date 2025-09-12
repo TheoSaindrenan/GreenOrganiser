@@ -1,0 +1,8 @@
+<div class="language-switcher">
+  <button 
+    (click)="toggleLanguage()" 
+    class="language-btn"
+    [title]="currentLanguage === 'fr' ? 'Switch to English' : 'Passer en français'">
+    <span [ngClass]="currentLanguage === 'fr' ? 'fi fi-fr' : 'fi fi-gb'"></span>
+  </button>
+</div>

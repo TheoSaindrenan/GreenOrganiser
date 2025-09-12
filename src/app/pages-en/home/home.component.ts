@@ -1,18 +1,17 @@
-// src/app/pages/accueil/accueil.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AccueilComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
 
   private subscription = new Subscription();
-  currentLanguage: string = 'fr';
+  currentLanguage: string = 'en';
 
   constructor(
     private router: Router,
@@ -20,8 +19,8 @@ export class AccueilComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // Détecter et définir la langue française
-    this.languageService.setLanguage('fr');
+    // Détecter et définir la langue anglaise
+    this.languageService.setLanguage('en');
     
     this.subscription.add(
       this.languageService.currentLanguage$.subscribe(lang => {
@@ -35,7 +34,7 @@ export class AccueilComponent implements OnInit, OnDestroy {
   }
 
   // Méthodes de navigation qui respectent la langue
-  navigateToAPropos() {
+  navigateToAbout() {
     this.languageService.navigateInCurrentLanguage('about');
   }
 
@@ -44,6 +43,6 @@ export class AccueilComponent implements OnInit, OnDestroy {
   }
 
   openTypeform() {
-    window.open('https://form.typeform.com/to/YwyF5A2R', '_blank');
+    window.open('https://form.typeform.com/to/Qx5yS5a2', '_blank');
   }
 }

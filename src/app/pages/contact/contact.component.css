@@ -1,72 +1,94 @@
-/* contact.component.css */
-
-/* Header Styles */
-.header {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* RESET COMPLET - Supprime TOUTES les marges et bordures */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+/* HEADER - Sans aucune marge */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0; /* Supprime tout padding */
+    margin: 0; /* Supprime toute marge */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100vw; /* Force 100% de la largeur viewport */
+    left: 0;
+    right: 0;
+}
+
+/* NAVIGATION BAR - Prend toute la largeur */
 .nav-bar {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
+    max-width: none; /* Supprime la limitation de largeur */
+    width: 100%;
+    margin: 0;
+    padding: 1rem 2rem; /* Padding interne seulement */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50; /* Assure la couleur */
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
-.logo-icon {
-  font-size: 2rem;
-  margin-right: 0.5rem;
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 0.5rem;
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link, .nav-cta {
-  background: none;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+    background-color: #2E7D32;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin: 0;
 }
 
 .nav-link:hover {
-  background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.1);
 }
 
 .nav-link.active {
-  background-color: rgba(255,255,255,0.2);
-  font-weight: bold;
+    background-color: rgba(255,255,255,0.2);
+    font-weight: bold;
 }
 
 .nav-cta {
-  background-color: #2E7D32;
-  border: 2px solid #2E7D32;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.nav-cta:hover {
-  background-color: #1B5E20;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #2E7D32;
+    border: 2px solid #2E7D32;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 /* Contact Section */
@@ -242,4 +264,17 @@
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
   }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* supprime width: 1px; */
+}
+
+.logo img {
+    width: 60px;   /* adapte à la taille que tu veux */
+    height: auto;  /* garde les proportions */
 }

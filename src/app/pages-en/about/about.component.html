@@ -1,0 +1,142 @@
+<!-- Header Navigation -->
+<header class="header">
+  <nav class="nav-bar">
+ <div class="logo">
+      <img src="assets/logo/logogreen.png" alt="Processus de réservation" />
+      <span class="logo-text">Green Organiser</span>
+  </div>
+    <div class="nav-links">
+      <button class="nav-link" (click)="navigateToHome()">Home</button>
+      <button class="nav-link active">About</button>
+      <button class="nav-link" (click)="navigateToContact()">Contact</button>
+      <button class="nav-link" (click)="openTypeform()" class="nav-cta">I would like to request a free quote</button>
+      <app-language-switcher></app-language-switcher>
+    </div>
+  </nav>
+</header>
+
+<!-- What is Green Organizer Section -->
+<section class="intro-section">
+  <div class="intro-content">
+    <div class="intro-text">
+      <h1>What is Green Organiser?</h1>
+      
+      <p>Green Organiser is an independent agency specialising in the sale of hotel rooms for groups, exclusively in eco-friendly establishments.</p>
+      
+      <p>We believe it is possible to travel with others without compromising your values. That is why every booking we offer is designed to limit environmental impact while ensuring comfort, simplicity, and efficiency.</p>
+    </div>
+    
+    <div class="intro-image">
+        <img src="assets/a-propos/image1.png" alt="Processus de réservation" />
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission-section">
+  <h2>Our mission:</h2>
+  
+  <div class="mission-content">
+    <div class="mission-image">
+     <img src="assets/a-propos/image2.png" alt="Processus de réservation" />
+    </div>
+    
+    <div class="mission-text">
+      <p class="mission-intro">Facilitating the organisation of group trips, while encouraging more responsible tourism.</p>
+      
+      <p>In practical terms, this means:</p>
+      
+      <div class="mission-steps">
+        <div class="mission-step">
+          <div class="step-number green">1</div>
+          <p>Respond to all requests for 5 rooms or more</p>
+        </div>
+        
+        <div class="mission-step">
+          <div class="step-number green">2</div>
+          <p>Select and negotiate with hotels committed to environmental sustainability</p>
+        </div>
+        
+        <div class="mission-step">
+          <div class="step-number green">3</div>
+          <p>Acting with transparency and independence: no imposed hotels, no fixed offers</p>
+        </div>
+        
+        <div class="mission-step">
+          <div class="step-number green">4</div>
+          <p>Offering a simple, fast and personalised service</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who's Behind Section -->
+<section class="behind-section">
+  <h2>Who is behind Green Organiser?</h2>
+  
+  <div class="behind-content">
+    <div class="behind-text">
+      <p>Green Organiser was founded by Mathis Gandubert, a passionate advocate of hospitality and ecology, with a degree in international hotel management, extensive experience in revenue analysis and operations in the luxury hotel industry, and now a committed entrepreneur.</p>
+      
+      <p>After working in 4- and 5-star hotels, I came to a realisation:</p>
+      
+      <p>Groups lack a simple, flexible booking service that is in tune with current climate issues.</p>
+      
+      <p>This idea gave rise to Green Organiser.</p>
+    </div>
+    
+    <div class="behind-image">
+      <img src="assets/a-propos/image3.png" alt="Processus de réservation" />
+    </div>
+  </div>
+</section>
+
+<!-- Commitments Section -->
+    <section class="commitments-section">
+        <h2>Our commitments</h2>
+        
+        <div class="commitments-grid">
+            <div class="commitment-item">
+                <img src="assets/a-propos/image4.png" alt="Écoresponsabilité" />
+                <div class="commitment-content">
+                    <h3>Environmental responsibility</h3>
+                    <p>we only work with accommodation providers who are committed to sustainability (labels, best practices, etc.).</p>
+                </div>
+            </div>
+            
+            <div class="commitment-item">
+                <img src="assets/a-propos/image5.png" alt="Sur-mesure" />
+                <div class="commitment-content">
+                    <h3>Tailor-made</h3>
+                    <p>every request is unique, and so is every proposal.</p>
+                </div>
+            </div>
+            
+            <div class="commitment-item">
+                <img src="assets/a-propos/image6.png" alt="Indépendance" />
+                <div class="commitment-content">
+                    <h3>Independence</h3>
+                    <p>we do not impose any hotels, and we negotiate freely on behalf of our clients</p>
+                </div>
+            </div>
+            
+            <div class="commitment-item">
+                <img src="assets/a-propos/image7.png" alt="Transparence" />
+                <div class="commitment-content">
+                    <h3>Transparency</h3>
+                    <p>a fixed commission of 10%, included in the price, with no hidden fees</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Final CTA Section -->
+<section class="final-cta-section">
+  <div class="cta-content">
+    <h2>Are you planning a group trip?</h2>
+    <p> Contact us, and we will take care of the rest.</p>
+    
+    <button (click)="openTypeform()" class="cta-button">I would like to request a free quote</button>
+  </div>
+</section>

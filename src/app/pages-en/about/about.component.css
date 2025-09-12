@@ -90,7 +90,6 @@ html, body {
     font-weight: bold;
     transition: all 0.3s ease;
 }
-
 /* Intro Section */
 .intro-section {
   padding: 4rem 0;
@@ -380,6 +379,19 @@ html, body {
   .behind-text p {
     font-size: 1rem;
   }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* supprime width: 1px; */
+}
+
+.logo img {
+    width: 60px;   /* adapte à la taille que tu veux */
+    height: auto;  /* garde les proportions */
 }
 
 .commitment-item {

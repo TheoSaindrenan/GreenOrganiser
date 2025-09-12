@@ -1,17 +1,21 @@
-<!-- Header Navigation -->
+<!-- navbar pour vos pages françaises (accueil, a-propos, contact) -->
 <header class="header">
-  <nav class="nav-bar">
-    <div class="logo">
-      <span class="logo-icon">🌿</span>
-      <span class="logo-text">Green Organiser</span>
-    </div>
-    <div class="nav-links">
-      <button (click)="navigateToAccueil()" class="nav-link">Accueil</button>
-      <button class="nav-link active">À propos</button>
-      <button (click)="navigateToContact()" class="nav-link">Contact</button>
-      <button (click)="openTypeform()" class="nav-cta">Je demande mon devis</button>
-    </div>
-  </nav>
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="assets/logo/logogreen.png" alt="Green Organiser" />
+            <span class="logo-text">Green Organiser</span>
+        </div>
+        <div class="nav-links">
+            <!-- Au lieu de routerLink ou (click)="router.navigate([...])" -->
+            <button class="nav-link" (click)="navigateToAccueil()">Accueil</button>
+            <button class="nav-link active">À propos</button>
+            <button class="nav-link" (click)="navigateToContact()">Contact</button>
+            <button class="nav-link" (click)="openTypeform()" class="nav-cta">Je demande mon devis</button>
+            
+            <!-- Sélecteur de langue -->
+            <app-language-switcher></app-language-switcher>
+        </div>
+    </nav>
 </header>
 
 <!-- What is Green Organizer Section -->
@@ -20,15 +24,13 @@
     <div class="intro-text">
       <h1>Green Organiser c'est quoi ?</h1>
       
-      <p>Green Organizer est une agence indépendante spécialisée dans la vente de chambres d'hôtels pour les groupes, uniquement dans des établissements écoresponsables.</p>
+      <p>Green Organiser est une agence indépendante spécialisée dans la vente de chambres d’hôtel pour les groupes, uniquement dans des établissements écoresponsables.</p>
       
-      <p>Nous croyons qu'il est possible de voyager à plusieurs tout en respectant l'environnement. Notre service de réservation que nous proposons est pensée pour limiter l'impact environnemental tout en garantissant confort, simplicité et efficacité.</p>
+      <p>Nous croyons qu’il est possible de voyager à plusieurs sans renoncer à ses valeurs. C’est pourquoi chaque réservation que nous proposons est pensée pour limiter l’impact environnemental tout en garantissant confort, simplicité et efficacité.</p>
     </div>
     
     <div class="intro-image">
-      <div class="placeholder-image">
-        <span>👥 Image équipe Green Organizer</span>
-      </div>
+        <img src="assets/a-propos/image1.png" alt="Processus de réservation" />
     </div>
   </div>
 </section>
@@ -39,9 +41,7 @@
   
   <div class="mission-content">
     <div class="mission-image">
-      <div class="placeholder-image">
-        <span>🌱 Image mission écologique</span>
-      </div>
+     <img src="assets/a-propos/image2.png" alt="Processus de réservation" />
     </div>
     
     <div class="mission-text">
@@ -80,53 +80,59 @@
   
   <div class="behind-content">
     <div class="behind-text">
-      <p>Green Organizer a été créé par Maya Gavalda, consultante d'hôtellerie et écologie, diplômé en management hôtelier international. Ses plus de 15 ans d'analyse de revenus et en marketing digital lui permettent d'apporter des solutions précises pour chaque demande de groupe en entrepreneuriat engagé.</p>
+      <p>Green Organiser a été fondé par Mathis Gandubert, passionné d’hôtellerie et d’écologie, diplômé en management hôtelier international, fort d’une expérience en analyse de revenus et en opération dans l’hôtellerie haut de gamme, et aujourd’hui entrepreneur engagé.</p>
       
-      <p>Après avoir travaillé dans des chaînes d'hôtels 4 et 5 étoiles, j'ai fait un constat.</p>
+      <p>Après avoir travaillé dans des hôtels 4 et 5 étoiles, j’ai fait un constat :</p>
       
-      <p>Les groupes manquent d'un service de réservation simple, flexible et transparent, avec de vrais choix climatiques actuels.</p>
+      <p>Les groupes manquent d’un service de réservation simple, flexible et en phase avec les enjeux climatiques actuels.</p>
       
       <p>C'est de cette idée qu'est né Green Organizer !</p>
     </div>
     
     <div class="behind-image">
-      <div class="placeholder-image">
-        <span>👩‍💼 Image Maya Gavalda</span>
-      </div>
+      <img src="assets/a-propos/image3.png" alt="Processus de réservation" />
     </div>
   </div>
 </section>
 
 <!-- Commitments Section -->
-<section class="commitments-section">
-  <h2>Nos engagements</h2>
-  
-  <div class="commitments-grid">
-    <div class="commitment-item">
-      <div class="commitment-icon">🌍</div>
-      <h3>Écoresponsabilité</h3>
-      <p>Nous ne collaborons qu'avec des hébergements engagés dans une démarche durable</p>
-    </div>
-    
-    <div class="commitment-item">
-      <div class="commitment-icon">📋</div>
-      <h3>Sur-mesure</h3>
-      <p>Chaque demande est unique, chaque proposition l'est aussi</p>
-    </div>
-    
-    <div class="commitment-item">
-      <div class="commitment-icon">🤝</div>
-      <h3>Indépendance</h3>
-      <p>Nous n'imposons aucun hôtel et nous négocions librement pour nos clients</p>
-    </div>
-    
-    <div class="commitment-item">
-      <div class="commitment-icon">💎</div>
-      <h3>Transparence</h3>
-      <p>Une commission fixe de 10 %, incluse dans le prix, sans frais cachés</p>
-    </div>
-  </div>
-</section>
+    <section class="commitments-section">
+        <h2>Nos engagements</h2>
+        
+        <div class="commitments-grid">
+            <div class="commitment-item">
+                <img src="assets/a-propos/image4.png" alt="Écoresponsabilité" />
+                <div class="commitment-content">
+                    <h3>Écoresponsabilité</h3>
+                    <p> nous ne collaborons qu’avec des hébergements engagés (labels, bonnes pratiques, etc.)</p>
+                </div>
+            </div>
+            
+            <div class="commitment-item">
+                <img src="assets/a-propos/image5.png" alt="Sur-mesure" />
+                <div class="commitment-content">
+                    <h3>Sur-mesure</h3>
+                    <p>chaque demande est unique, chaque proposition l’est aussi</p>
+                </div>
+            </div>
+            
+            <div class="commitment-item">
+                <img src="assets/a-propos/image6.png" alt="Indépendance" />
+                <div class="commitment-content">
+                    <h3>Indépendance</h3>
+                    <p>nous n’imposons aucun hôtel, et nous négocions librement pour nos clients</p>
+                </div>
+            </div>
+            
+            <div class="commitment-item">
+                <img src="assets/a-propos/image7.png" alt="Transparence" />
+                <div class="commitment-content">
+                    <h3>Transparence</h3>
+                    <p>Une commission fixe de 10 %, incluse dans le prix, sans frais cachés</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- Final CTA Section -->
 <section class="final-cta-section">

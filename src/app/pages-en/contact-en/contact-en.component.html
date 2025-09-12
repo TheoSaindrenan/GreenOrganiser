@@ -1,32 +1,30 @@
 <!-- contact.component.html -->
 <!-- Header Navigation -->
-    <!-- Header Navigation -->
-    <header class="header">
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="assets/logo/logogreen.png" alt="Processus de réservation" />
-                <span class="logo-text">Green Organiser</span>
-            </div>
-            <div class="nav-links">
-            <button class="nav-link" (click)="navigateToAccueil()">Accueil</button>
-            <button class="nav-link" (click)="navigateToAPropos()">À propos</button>
+<header class="header">
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="assets/logo/logogreen.png" alt="Booking process" />
+            <span class="logo-text">Green Organiser</span>
+        </div>
+        <div class="nav-links">
+            <button class="nav-link" (click)="navigateToHome()">Home</button>
+            <button class="nav-link" (click)="navigateToAbout()">About</button>
             <button class="nav-link active">Contact</button>
-            <button class="nav-link" (click)="openTypeform()" class="nav-cta">Je demande mon devis</button>
+            <button (click)="openTypeform()" class="nav-cta">I would like to request a free quote</button>
 
-            <!-- Sélecteur de langue -->
             <app-language-switcher></app-language-switcher>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <!-- Contact Form Section -->
 <section class="contact-section">
   <div class="contact-container">
-    <h1>Contactez nous !</h1>
+    <h1>Contact us!</h1>
     
     <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
       <div class="form-group">
-        <label for="nom">Nom*</label>
+        <label for="nom">Last Name*</label>
         <input 
           type="text" 
           id="nom" 
@@ -36,12 +34,12 @@
           class="form-input"
           #nom="ngModel">
         <div *ngIf="nom.invalid && nom.touched" class="error-message">
-          Le nom est requis
+          The last name is required
         </div>
       </div>
 
       <div class="form-group">
-        <label for="prenom">Prénom*</label>
+        <label for="prenom">First Name*</label>
         <input 
           type="text" 
           id="prenom" 
@@ -51,12 +49,12 @@
           class="form-input"
           #prenom="ngModel">
         <div *ngIf="prenom.invalid && prenom.touched" class="error-message">
-          Le prénom est requis
+          The first name is required
         </div>
       </div>
 
       <div class="form-group">
-        <label for="email">Mail*</label>
+        <label for="email">Email Address*</label>
         <input 
           type="email" 
           id="email" 
@@ -67,13 +65,13 @@
           class="form-input"
           #email="ngModel">
         <div *ngIf="email.invalid && email.touched" class="error-message">
-          <span *ngIf="email.errors?.['required']">L'email est requis</span>
-          <span *ngIf="email.errors?.['email']">L'email n'est pas valide</span>
+          <span *ngIf="email.errors?.['required']">The email address is required</span>
+          <span *ngIf="email.errors?.['email']">The email address is not valid</span>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="telephone">Téléphone</label>
+        <label for="telephone">Phone Number</label>
         <input 
           type="tel" 
           id="telephone" 
@@ -92,9 +90,9 @@
           rows="6" 
           class="form-textarea"
           #message="ngModel"
-          placeholder="Votre message..."></textarea>
+          placeholder="Your message..."></textarea>
         <div *ngIf="message.invalid && message.touched" class="error-message">
-          Le message est requis
+          The message is required
         </div>
       </div>
 
@@ -103,12 +101,13 @@
         class="submit-button" 
         [disabled]="!contactForm.form.valid"
         [class.disabled]="!contactForm.form.valid">
-        Envoyer
+        Send
       </button>
     </form>
+
     <!-- Success Message -->
     <div *ngIf="showSuccessMessage" class="success-message">
-      <p>✅ Merci ! Votre client email va s'ouvrir pour envoyer le message. Nous vous répondrons dans les plus brefs délais.</p>
+      <p>✅ Thank you! Your email client will open to send the message. We will respond as soon as possible.</p>
     </div>
   </div>
 </section>
