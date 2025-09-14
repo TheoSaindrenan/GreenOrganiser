@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class ContactEnComponent implements OnInit, OnDestroy {
   
 private subscription = new Subscription();
-  currentLanguage: string = 'fr';
+  currentLanguage: string = 'en';
 
   formData = {
     nom: '',
@@ -32,7 +32,7 @@ private subscription = new Subscription();
 
   ngOnInit(): void {
     // Détecter et définir la langue française
-    this.languageService.setLanguage('fr');
+    this.languageService.setLanguage('en');
     
     this.subscription.add(
       this.languageService.currentLanguage$.subscribe(lang => {
@@ -54,7 +54,7 @@ private subscription = new Subscription();
   }
 
   openTypeform() {
-    window.open('https://form.typeform.com/to/YwyF5A2R', '_blank');
+    window.open('https://form.typeform.com/to/Qx5yS5a2', '_blank');
   }
 
   onSubmit(contactForm: NgForm) {
@@ -120,7 +120,7 @@ private subscription = new Subscription();
       message: ''
     };
 
-    // Réinitialise le formulaire et supprime les erreurs de validation
+
     contactForm.resetForm();
   }
 }
