@@ -1,0 +1,135 @@
+<header class="header">
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="assets/logo/logogreen.png" alt="Green Organiser" />
+            <span class="logo-text">Green Organiser</span>
+        </div>
+        <div class="nav-links">
+            <button class="nav-link" (click)="navigateToAccueil()">Accueil</button>
+            <button class="nav-link" (click)="navigateToAPropos()">À propos</button>
+            <button class="nav-link" (click)="navigateToContact()">Contact</button>
+            <button class="nav-link" (click)="openTypeform()" class="nav-cta">Je demande mon devis</button>
+            <!-- Sélecteur de langue -->
+            <app-language-switcher></app-language-switcher>
+        </div>
+    </nav>
+</header>
+
+<section class="cgu-page" aria-labelledby="cgv-title">
+    <div class="container">
+      <header class="cgu-header">
+        <h1 id="cgv-title">Conditions Générales de Vente (CGV)</h1>
+        <p class="last-update">Dernière mise à jour : 02/10/25</p>
+        <hr class="divider" />
+      </header>
+  
+      <article class="cgu-content">
+  
+        <section>
+          <h2>1. Objet</h2>
+          <p>
+            Les présentes Conditions Générales de Vente (ci-après “CGV”) régissent les relations contractuelles entre
+            <strong>GREEN ORGANISER</strong> (ci-après “l’Entreprise”) et les établissements hôteliers partenaires
+            (ci-après “le Partenaire”) dans le cadre de la commercialisation d’hébergements éco responsables pour des groupes.
+          </p>
+        </section>
+  
+        <section>
+          <h2>2. Services fournis</h2>
+          <p>
+            L’Entreprise propose un service d’intermédiation consistant à :
+          </p>
+          <ul>
+            <li>Recevoir les demandes de devis de Clients souhaitant réserver un hébergement éco responsable pour un groupe (minimum 10 chambres ou équivalent),</li>
+            <li>Transmettre ces demandes au Partenaire,</li>
+            <li>Négocier et présenter une offre au Client,</li>
+            <li>Faciliter la mise en relation et la conclusion de la réservation.</li>
+          </ul>
+          <p>
+            L’Entreprise n’agit pas en tant qu’hébergeur et ne fournit pas directement de prestations d’hébergement.
+          </p>
+        </section>
+  
+        <section>
+          <h2>3. Commission</h2>
+          <p>
+            En contrepartie de son service d’intermédiation, l’Entreprise perçoit une commission de <strong>10 %</strong> du montant total HT de la
+            réservation confirmée par le Client. La commission est due dès confirmation ferme de la réservation.
+          </p>
+          <p>
+            Toute réservation annulée par le Client n’ouvre pas droit au paiement de la commission, sauf si des frais d’annulation
+            sont facturés, auquel cas la commission s’applique également sur ces frais.
+          </p>
+        </section>
+  
+        <section>
+          <h2>4. Facturation et modalités de paiement</h2>
+          <p>
+            Une facture correspondant au montant de la commission est émise dès confirmation de la réservation. Les factures sont
+            payables sous 30 jours à compter de leur date d’émission, par virement bancaire.
+          </p>
+          <p>
+            Tout retard de paiement donnera lieu, après mise en demeure, à l’application d’intérêts de retard au taux légal en vigueur,
+            ainsi qu’à une indemnité forfaitaire de <strong>40 €</strong> pour frais de recouvrement (article L441-10 du Code de commerce).
+          </p>
+        </section>
+  
+        <section>
+          <h2>5. Obligations du Partenaire</h2>
+          <p>
+            Le Partenaire s’engage à :
+          </p>
+          <ul>
+            <li>Fournir des offres sincères, exactes et conformes aux informations communiquées au Client,</li>
+            <li>Honorer toute réservation confirmée par le Client via l’intermédiation de l’Entreprise,</li>
+            <li>Informer immédiatement l’Entreprise en cas d’indisponibilité ou de modification substantielle de l’offre,</li>
+            <li>Régler les commissions dues dans les délais impartis.</li>
+          </ul>
+        </section>
+  
+        <section>
+          <h2>6. Responsabilités</h2>
+          <p>
+            L’Entreprise agit uniquement en qualité d’intermédiaire et ne peut être tenue responsable de la bonne exécution du séjour.
+            Le Partenaire est seul responsable de la qualité, de la sécurité et de la conformité de ses prestations.
+          </p>
+          <p>
+            L’Entreprise ne pourra être tenue responsable d’aucun dommage indirect, perte de chiffre d’affaires ou litige entre le Partenaire et le Client.
+          </p>
+        </section>
+  
+        <section>
+          <h2>7. Durée et résiliation</h2>
+          <p>
+            Les présentes CGV s’appliquent pour toute collaboration entre l’Entreprise et le Partenaire.
+            Chacune des parties peut mettre fin à la relation commerciale par simple notification écrite avec un préavis de 30 jours.
+          </p>
+          <p>
+            En cas de manquement grave aux obligations prévues, la résiliation peut intervenir de plein droit, sans préavis.
+          </p>
+        </section>
+  
+        <section>
+          <h2>8. Données personnelles</h2>
+          <p>
+            L’Entreprise peut être amenée à collecter et traiter certaines données personnelles dans le cadre de ses services.
+            Ces données sont utilisées uniquement pour la mise en relation et la gestion administrative des réservations.
+          </p>
+          <p>
+            Conformément au RGPD, le Partenaire dispose d’un droit d’accès, de rectification et de suppression de ses données en écrivant à :
+            <a href="mailto:Contact@greenorganiser.com">Contact@greenorganiser.com</a>.
+          </p>
+        </section>
+  
+        <section>
+          <h2>9. Loi applicable et juridiction</h2>
+          <p>
+            Les présentes CGV sont régies par le droit français.
+            Tout litige relatif à leur interprétation ou exécution sera soumis aux tribunaux compétents du ressort du siège social de l’Entreprise.
+          </p>
+        </section>
+  
+      </article>
+    </div>
+  </section>
+  
